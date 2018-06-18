@@ -1,2 +1,3 @@
-# hbase-mapreduce-example
-Mapreduce samples
+# Scala Hbase MapReduce Example
+
+
