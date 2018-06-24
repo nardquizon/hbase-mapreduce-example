@@ -10,11 +10,9 @@ import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.{TableMapReduceUtil, TableMapper}
 import org.apache.hadoop.hbase.util.Bytes
 import org.apache.hadoop.io.{LongWritable, Text}
-import org.apache.hadoop.mapreduce.lib.output.{
-  FileOutputFormat,
-  TextOutputFormat
-}
+import org.apache.hadoop.mapreduce.lib.output.{FileOutputFormat, TextOutputFormat}
 import org.apache.hadoop.mapreduce.{Job, Mapper, Reducer}
+import org.joda.time.{DateTime, Years}
 
 import scala.math.BigDecimal.RoundingMode
 
@@ -30,8 +28,9 @@ object MapReduceToFile {
                      value: Result,
                      context: Context): Unit = {
 
-      val age =
-        Bytes.toInt(value.getValue(AttributeFamily, AgeQualifier)).longValue()
+      val bdate =
+        Bytes.toLong(value.getValue(AttributeFamily, BirthdateQualifier))
+      val age = Years.yearsBetween(new DateTime(bdate), DateTime.now()).getYears.toLong
       val sex = Bytes.toString(value.getValue(AttributeFamily, SexQualifier))
 
       val text = new Text()

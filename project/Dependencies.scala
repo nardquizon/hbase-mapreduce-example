@@ -26,6 +26,8 @@ object Dependencies {
   val log4jOverSlf4j = "org.slf4j" % "log4j-over-slf4j" % slf4jVersion
   val slf4jApi = "org.slf4j" % "slf4j-api" % slf4jVersion
 
+  val joda = "joda-time" % "joda-time" % "2.10"
+
   val scalaArm = "com.jsuereth" %% "scala-arm" % "2.0"
 
   val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.7.2"

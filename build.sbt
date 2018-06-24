@@ -16,6 +16,7 @@ lazy val root = (project in file(".")).settings(
     hbaseHadoopCompat,
     hbaseCommon,
     hbaseClient,
+    joda,
     scalaArm
   )
 )

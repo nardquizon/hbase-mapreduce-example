@@ -9,7 +9,7 @@ import org.apache.hadoop.hbase.util.Bytes
 package object member {
   val MemberTable = TableName.valueOf("member")
   val AttributeFamily = Bytes.toBytes("attribute")
-  val AgeQualifier = Bytes.toBytes("age")
+  val BirthdateQualifier = Bytes.toBytes("bdate")
   val NameQualifier = Bytes.toBytes("name")
   val SexQualifier = Bytes.toBytes("sex")
 }
